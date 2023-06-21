@@ -100,7 +100,7 @@ const QuestionsView = () => {
       <h1 className="text-3xl font-bold mb-4 text-center">Model Exam Test</h1>
       <div className="max-w-[70rem] mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-          <div className="flex flex-wrap md:space-x-2 mb-4">
+          <div className="flex flex-wrap gap-2 md:gap-0 md:space-x-2 mb-4">
             {questions.map((_, index) => (
               <div
                 key={index}
@@ -117,8 +117,8 @@ const QuestionsView = () => {
           <div className="md:ml-auto mb-4 md:mb-0">
             <div className="bg-blue-500 text-white px-3 py-1 rounded">
               {Math.floor(timer / 3600)}:
-              {Math.floor((timer % 3600) / 60).toString().padStart(2, "0")}:
-              {(timer % 60).toString().padStart(2, "0")}
+              {Math.floor((timer % 3600) / 60).toString().padStart(2, "&quot;0&quot;")}:
+              {(timer % 60).toString().padStart(2, "&quot;0&quot;")}
             </div>
           </div>
         </div>
@@ -181,7 +181,7 @@ const QuestionsView = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white rounded-lg p-8 text-center">
             {timer === 0 ? (
-              <h2 className="text-2xl font-bold mb-4">Time's Up!</h2>
+              <h2 className="text-2xl font-bold mb-4">Time&apos;s Up!</h2>
             ) : (
               <h2 className="text-2xl font-bold mb-4">Exam Result</h2>
             )}
@@ -202,8 +202,8 @@ const QuestionsView = () => {
                   }`}
                 >
                   {isPass
-                    ? "\n Congratulations! You passed the exam."
-                    : "Sorry, you failed the exam."}
+                    ? "&quot; Congratulations! You passed the exam.&quot;"
+                    : "&quot; Sorry, you failed the exam.&quot;"}
                 </span>
               </p>
             ) : (
@@ -228,6 +228,7 @@ const QuestionsView = () => {
       )}
     </div>
   );
+  
   
 };
 
