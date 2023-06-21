@@ -19,7 +19,7 @@ const HomePage = () => {
     "CD90EF12"
   ]; // Array of valid codes
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event:React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     // Perform code verification logic here
     const isCorrect = validCodes.includes(code);
@@ -36,11 +36,11 @@ const HomePage = () => {
     <div className="bg-gray-200 min-h-screen flex items-center text-black justify-center">
       <div className="bg-white p-8 rounded-lg">
         <h2 className="text-2xl font-bold mb-4">Model Code Verification</h2>
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit} className="flex flex-col">
           <input
             type="text"
             value={code}
-            onChange={(event) => setCode(event.target.value)}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setCode(event.target.value)}
             className="border border-gray-300 px-4 py-2 rounded-lg mb-4"
             placeholder="Enter code"
             required
@@ -58,6 +58,9 @@ const HomePage = () => {
       </div>
     </div>
   );
+  
+  
+  
 };
 
 export default HomePage;

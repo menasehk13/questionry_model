@@ -5,13 +5,14 @@ import Image from "next/image";
 const QuestionsView = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [timer, setTimer] = useState(180 * 60);
-  const [userAnswers, setUserAnswers] = useState([]);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState("");
   const [showResultModal, setShowResultModal] = useState(false);
-  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<string[]>([]);
 
   useEffect(() => {
-    let countdown;
+    let countdown: NodeJS.Timeout | undefined = undefined;
+  
     if (timer > 0) {
       countdown = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
@@ -19,11 +20,12 @@ const QuestionsView = () => {
     } else {
       handleTimerEnd();
     }
-
+  
     return () => {
       clearInterval(countdown);
     };
   }, [timer]);
+  
 
   useEffect(() => {
     if (timer === 0) {
@@ -36,24 +38,28 @@ const QuestionsView = () => {
   }, []);
 
   const shuffleQuestions = () => {
-    const shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+    const shuffledQuestions = [...questions]
+      .sort(() => Math.random() - 0.5)
+      .map((question) => question.question); // Extract only the question strings
     setShuffledQuestions(shuffledQuestions);
     setQuestionIndex(0);
     setUserAnswers([]);
     setSelectedOption("");
   };
+  
 
-  const handleAnswer = (event) => {
+  const handleAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption("");
     const optionLabel = event.target.value;
     const optionValue = optionLabel.charAt(0);
-
+  
     setSelectedOption(optionValue);
-
+  
     const updatedUserAnswers = [...userAnswers];
     updatedUserAnswers[questionIndex] = optionValue;
     setUserAnswers(updatedUserAnswers);
   };
+  
 
   const handleNext = () => {
     if (questionIndex < shuffledQuestions.length - 1) {
@@ -88,7 +94,7 @@ const QuestionsView = () => {
     return { score, answeredQuestions };
   };
 
-  const currentQuestion = shuffledQuestions[questionIndex];
+  const currentQuestion = questions[questionIndex];
   const { score, answeredQuestions } = calculateResult();
   const totalQuestions = questions.length;
   const passPercentage = 50;
