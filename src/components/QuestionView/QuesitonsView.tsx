@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { questions } from "../Data/QuestionModel1";
 import Image from "next/image";
+import ExamResultPDF from "../Results/ExamResultPDF";
+import { PDFViewer } from "@react-pdf/renderer";
 
 const QuestionsView = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -8,11 +10,12 @@ const QuestionsView = () => {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState("");
   const [showResultModal, setShowResultModal] = useState(false);
-  const [shuffledQuestions, setShuffledQuestions] = useState<string[]>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [showResultPDF, setShowResultPDF] = useState(false);
 
   useEffect(() => {
-    let countdown: NodeJS.Timeout | undefined = undefined;
-  
+    let countdown;
+
     if (timer > 0) {
       countdown = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
@@ -20,12 +23,11 @@ const QuestionsView = () => {
     } else {
       handleTimerEnd();
     }
-  
+
     return () => {
       clearInterval(countdown);
     };
   }, [timer]);
-  
 
   useEffect(() => {
     if (timer === 0) {
@@ -38,28 +40,24 @@ const QuestionsView = () => {
   }, []);
 
   const shuffleQuestions = () => {
-    const shuffledQuestions = [...questions]
-      .sort(() => Math.random() - 0.5)
-      .map((question) => question.question); // Extract only the question strings
+    const shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
     setShuffledQuestions(shuffledQuestions);
     setQuestionIndex(0);
     setUserAnswers([]);
     setSelectedOption("");
   };
-  
 
   const handleAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption("");
     const optionLabel = event.target.value;
     const optionValue = optionLabel.charAt(0);
-  
+
     setSelectedOption(optionValue);
-  
+
     const updatedUserAnswers = [...userAnswers];
     updatedUserAnswers[questionIndex] = optionValue;
     setUserAnswers(updatedUserAnswers);
   };
-  
 
   const handleNext = () => {
     if (questionIndex < shuffledQuestions.length - 1) {
@@ -72,6 +70,7 @@ const QuestionsView = () => {
 
   const handleTimerEnd = () => {
     setShowResultModal(true);
+    setShowResultPDF(true);
   };
 
   const handleCloseModal = () => {
@@ -94,7 +93,7 @@ const QuestionsView = () => {
     return { score, answeredQuestions };
   };
 
-  const currentQuestion = questions[questionIndex];
+  const currentQuestion = shuffledQuestions[questionIndex];
   const { score, answeredQuestions } = calculateResult();
   const totalQuestions = questions.length;
   const passPercentage = 50;
@@ -229,9 +228,36 @@ const QuestionsView = () => {
             >
               Retake Exam
             </button>
+            <button
+              onClick={()=>setShowResultPDF(true)}
+              className="px-5 mx-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Show Answers
+            </button>
           </div>
         </div>
       )}
+     {showResultPDF && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center">
+      <div className="bg-white rounded-lg p-8 text-center max-w-3xl w-full h-full overflow-auto">
+        <h2 className="text-2xl font-bold mb-4">Exam Result PDF</h2>
+        <div className="w-full h-full">
+          <PDFViewer width="100%" height="100%">
+            <ExamResultPDF userAnswers={userAnswers} />
+          </PDFViewer>
+        </div>
+        <button
+          onClick={() => setShowResultPDF(false)}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mt-4"
+        >
+          Close PDF
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
   

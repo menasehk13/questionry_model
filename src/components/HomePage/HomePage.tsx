@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import QuestionsView from "../QuestionView/QuesitonsView";
+import Cookies from "js-cookie";
 
 const HomePage = () => {
   const router = useRouter();
@@ -19,16 +20,24 @@ const HomePage = () => {
     "CD90EF12"
   ]; // Array of valid codes
 
-  const handleSubmit = (event:React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    const usedCode = Cookies.get("usedCode");
+    if (usedCode) {
+      setIsCodeInvalid(true);
+    }
+  }, []);
+  
+  const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Perform code verification logic here
     const isCorrect = validCodes.includes(code);
 
     setIsCodeCorrect(isCorrect);
     setIsCodeInvalid(!isCorrect);
-
     if (isCorrect) {
-      router.push("/questions"); // Navigate to the questions page
+      console.log(isCorrect)
+      Cookies.set("usedCode", code);
+      router.push("/questions");
     }
   };
 
@@ -36,11 +45,11 @@ const HomePage = () => {
     <div className="bg-gray-200 min-h-screen flex items-center text-black justify-center">
       <div className="bg-white p-8 rounded-lg">
         <h2 className="text-2xl font-bold mb-4">Model Code Verification</h2>
-        <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit} className="flex flex-col">
+        <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col">
           <input
             type="text"
             value={code}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setCode(event.target.value)}
+            onChange={(e) => setCode(e.target.value)}
             className="border border-gray-300 px-4 py-2 rounded-lg mb-4"
             placeholder="Enter code"
             required

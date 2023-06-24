@@ -261,6 +261,314 @@ export const questions = [
         ],
         answer: "A",
         image: q33imge
+        },
+        {
+          question: "Determine the Fourier transform of the signal",
+          options: [
+            "A.",
+            "B.",
+            "C.",
+            "D.",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The energy E and the power P of the continuous-time signal x(t) = e−2πjt are ___________.",
+          options: [
+            "A. E = ∞ and p = ∞",
+            "B. E = 1 and p = ∞",
+            "C. E = ∞ and p = 10",
+            "D. E = ∞ and p = 1",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The Fourier transform for a signal exists when",
+          options: [
+            "A.",
+            "B.",
+            "C.",
+            "D.",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "All are correct except one of the following common Fourier Transform pairs",
+          options: [
+            "A.",
+            "B.",
+            "C.",
+            "D.",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "If (110)x = (132)4, then what is x?",
+          options: [
+            "A. 8",
+            "B. 5",
+            "C. 6",
+            "D. 9",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "What is the simplified SOP equation for the following K-Map?",
+          options: [
+            "A. A'B + AB'",
+            "B. BC' + A'B'C + AB'C",
+            "C. A'C + AC'",
+            "D. BC' + B'C",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "In BCD addition, when a 4-bit sum is invalid, we add _______ as a correction value.",
+          options: [
+            "A. 1001",
+            "B. 1111",
+            "C. 0000",
+            "D. 0110",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "Given the truth table below, which one of the following is not the Boolean expression for Y?",
+          options: [
+            "A. AB' + AB + A'B'",
+            "B. A' + B",
+            "C. A + B'",
+            "D. A + A'B'",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The logic realized by the circuit shown in the figure below:",
+          options: [
+            "A. F = A ʘ C",
+            "B. F = A ⊕ B",
+            "C. F = A ⊕ C",
+            "D. F = B ⊕ C",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "What is the output states of flip flops shown in the figure below?",
+          options: [
+            "A. Q = 0 always",
+            "B. Q toggles",
+            "C. Q = 1 always",
+            "D. Q is undefined",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The inputs of a Half Adder are A = 1, B = 1. The outputs are connected to the select lines of a 4:1 Multiplexer. What will be the output?",
+          options: [
+            "A. Y = I0",
+            "B. Y = I2",
+            "C. Y = I1",
+            "D. Y = I3",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "Consider the circuit shown in figure4 below. What is the output Q0Q1Q2Q3 at the 4th clock pulse?",
+          options: [
+            "A. 1110",
+            "B. 1101",
+            "C. 1001",
+            "D. 0000",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "What is the binary equivalent of the decimal number 368?",
+          options: [
+            "A. 101110000",
+            "B. 111010000",
+            "C. 110110000",
+            "D. 111100000",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The simplification of the Boolean expression is ___________.",
+          options: [
+            "A. 0",
+            "B. 1",
+            "C. A",
+            "D. BC",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The output of a logic gate is 1 when all its inputs are at logic 0. The gate is either",
+          options: [
+            "A. a NAND or an EX-OR",
+            "B. an AND or an EX-OR",
+            "C. an OR or an EX-NOR",
+            "D. a NOR or an EX-NOR",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "Data can be changed from special code to temporal code by using",
+          options: [
+            "A. Shift registers",
+            "B. Combinational circuits",
+            "C. Counters",
+            "D. A/D converters",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The 2’s complement of the number 1101101 is",
+          options: [
+            "A. 101110",
+            "B. 111110",
+            "C. 110010",
+            "D. 1001",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The gates required to build a half adder are",
+          options: [
+            "A. EX-OR gate and NOR gate",
+            "B. EX-OR gate and OR gate",
+            "C. EX-OR gate and AND gate",
+            "D. Four NAND gates",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The code where all successive numbers differ from their preceding number by a single bit is",
+          options: [
+            "A. Binary code",
+            "B. Excess – 3",
+            "C. BCD",
+            "D. Gray",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The driving-point impedance Z(s) of a network has pole-zero locations as shown in the figure. If Z(0) = 3, then Z(s) is",
+          options: [
+            "A. ",
+            "B. ",
+            "C. ",
+            "D. ",
+          ],
+          answer: "", // Provide the correct answer here
+          image: "image-url-53", // Provide the URL of the image here
+        },
+        {
+          question: "Which of the following is the application of network analysis?",
+          options: [
+            "A. Computer science engineering",
+            "B. Electronic engineering",
+            "C. Electrical engineering",
+            "D. All of the above",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "What is the purpose of a passive component in a network circuit?",
+          options: [
+            "A. Transmits from node to node",
+            "B. Controls all the signals alone",
+            "C. Controls current using other electrical signals",
+            "D. Maintains noise-free during transmission",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "Which of the following polynomials is not Hurwitz?",
+          options: [
+            "A. P(s) = s^8 + 2s^6 + 4s^4",
+            "B. P(s) = s^6 - 3s^4 + 2s^2 + 1",
+            "C. P(s) = s^4 + 3s^3 + 3s^2 + 2s + 1",
+            "D. P(s) = s^7 + 2s^6 + 2s^4 + 4s^3 + 8s^2 + 8s + 4",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "The circuit shown in the figure has initial current iL(0) = 1A through the inductor and an initial voltage vc(0) = 1V across the capacitor. For input v(t) = U(t), the Laplace transform of the current i(t) for t ≥ 0 is",
+          options: [
+            "A. ",
+            "B. ",
+            "C. ",
+            "D. ",
+          ],
+          answer: "", // Provide the correct answer here
+          image: "image-url-57", // Provide the URL of the image here
+        },
+        {
+          question: "The average value of the periodic function v(t) in the figure is",
+          options: [
+            "A. ",
+            "B. ",
+            "C. ",
+            "D. ",
+          ],
+          answer: "", // Provide the correct answer here
+          image: "image-url-58", // Provide the URL of the image here
+        },
+        {
+          question: "A system function H(s) = , the system is at rest for t < 0. For i(t) = u(t), then v(t) is given by",
+          options: [
+            "A. 1 + e^(-4t)",
+            "B. e^(4t)",
+            "C. e^(-4t)",
+            "D. 1 - e^(-4t)",
+          ],
+          answer: "", // Provide the correct answer here
+          image: null,
+        },
+        {
+          question: "Consider the following one-port RL network driving-point function. Realize it using Foster – 1 method",
+          options: [
+            "A. ",
+            "B. ",
+            "C. ",
+            "D. ",
+          ],
+          answer: "", // Provide the correct answer here
+          image: "image-url-60", // Provide the URL of the image here
+        },
+        {
+          question: "Realize the following transfer function using operational amplifiers and RC elements and inverting feedback",
+          options: [
+            "A. ",
+            "B. ",
+            "C. ",
+            "D. ",
+          ],
+          answer: "", // Provide the correct answer here
+          image: "image-url-61", // Provide the URL of the image here
         }
   ];
   
